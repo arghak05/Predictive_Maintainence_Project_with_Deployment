@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML APP</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Air Temperature Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+
+        Process temperature [K]: <input type="text" name="Process temperature [K]" required="required" /><br><br>
+    	Rotational speed [rpm]: <input type="text" name="Rotational speed [rpm]" required="required" /><br><br>
+        Torque [Nm]: <input type="text" name="Torque [Nm]" required="required" /><br><br>
+        Tool wear [min]: <input type="text" name="Tool wear [min]" required="required" /><br><br>
+        Machine failure: <input type="text" name="Machine failure" required="required" /><br><br>
+        Tool wear failure (TWF): <input type="text" name="Tool wear failure (TWF)" required="required" /><br><br>
+        Heat dissipation failure (HDF): <input type="text" name="Heat dissipation failure (HDF)" required="required" /><br><br>
+        Power failure (PWF): <input type="text" name="Power failure (PWF)" required="required" /><br><br>
+        Overstrain failure (OSF): <input type="text" name="Overstrain failure (OSF)" required="required" /><br><br>
+        Random failures (RNF): <input type="text" name="Random failures (RNF)" required="required" /><br><br>
+        Low: <input type="text" name="Low" required="required" /><br><br>
+        Medium: <input type="text" name="Medium" required="required" /><br><br>
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+
+
+ </div>
+ {{prediction_text}}
+
+</body>
+</html>
